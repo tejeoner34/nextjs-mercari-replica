@@ -1,4 +1,4 @@
-import { Categorie } from '@/models/models';
+import { Categorie, ProductDetailResume } from '@/models/models';
 
 const baseUrl =
   process.env.NODE_ENV === 'development'
@@ -10,6 +10,16 @@ export async function fetchCategories() {
     const res = await fetch(baseUrl + '/api/products');
     const categories: Categorie[] = await res.json();
     return categories;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+export async function fetchProductsResumePerId(id: string): Promise<ProductDetailResume[]> {
+  try {
+    const res = await fetch(baseUrl + '/api/products/' + id);
+    return await res.json();
   } catch (error) {
     console.error(error);
     return [];
