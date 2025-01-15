@@ -14,3 +14,14 @@ export interface ProductDetailResume {
   price: number;
   imageUrl: string;
 }
+
+export interface ProductDetail extends ProductDetailResume {
+  description: string;
+  size: number;
+  media: ProductMediaData;
+}
+
+export interface ProductMediaData {
+  likes: number;
+  comments: number;
+}
