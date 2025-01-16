@@ -2,7 +2,7 @@ import { Categorie, ProductDetail, ProductDetailResume } from '@/models/models';
 
 const baseUrl =
   process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3001' // Development URL
+    ? 'http://localhost:3000' // Development URL
     : '';
 
 export async function fetchCategories() {

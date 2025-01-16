@@ -19,6 +19,7 @@ export interface ProductDetail extends ProductDetailResume {
   description: string;
   size: number;
   media: ProductMediaData;
+  images: string[];
 }
 
 export interface ProductMediaData {
