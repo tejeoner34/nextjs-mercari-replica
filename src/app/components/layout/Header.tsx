@@ -9,7 +9,9 @@ export default function Header() {
       <header className="bg-background min-h-20 p-3 flex flex-col gap-5 border-b border-solid border-border">
         <div className="flex justify-between items-center">
           <div></div>
-          <Image src="/images/logo-white.svg" alt="logo" width={100} height={100} />
+          <Link href="/">
+            <Image src="/images/logo-white.svg" alt="logo" width={100} height={100} />
+          </Link>
           <SearchDialog child={<IoIosSearch size={25} />} />
         </div>
         <div>

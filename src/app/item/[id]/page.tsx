@@ -7,30 +7,32 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from '@/components/ui/carousel';
+import Image from 'next/image';
 
 type ItemDetailPageProps = {
   params: Promise<{ id: string }>;
 };
 export default async function page({ params }: ItemDetailPageProps) {
   const productDetail = await fetchProductDetail((await params).id);
+  console.log(productDetail);
 
   return (
     <div className="flex justify-center">
       <Carousel className="w-full max-w-xs relative">
         <CarouselContent>
-          {productDetail.images.map((_, index) => (
+          {productDetail.images.map((image, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <span className="text-4xl font-semibold">{index + 1}</span>
+                  <CardContent className="relative aspect-square">
+                    <Image src={image} alt="image detail" objectFit="cover" layout="fill" />
                   </CardContent>
                 </Card>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute  bottom-5">
+        <div className="absolute  bottom-7 right-12">
           <CarouselNext />
           <CarouselPrevious />
         </div>
