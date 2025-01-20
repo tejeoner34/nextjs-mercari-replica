@@ -1,8 +1,9 @@
 import { ProductDetailResume } from '@/models/models';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-  console.log(params.id);
+export async function GET(request: NextRequest, context: { params: { id: string } }) {
+  const params = context.params;
+  console.log(params);
   return NextResponse.json(productList);
 }
 
